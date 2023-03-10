@@ -29,7 +29,15 @@ const Calculator = () => {
 
   function handleOperation(e){
     setOperacao(e.target.value)
-    console.log(operacao);
+    setNum2(num)
+    setNum(0)
+  }
+
+  function calculate() {
+    if(operacao === '+') setNum(+num2 + +num)
+    if(operacao === '*') setNum(num2 * num)
+    if(operacao === '-') setNum(num2 - num)
+    if(operacao === '/') setNum(num2 / num)
   }
 
   return (
@@ -55,8 +63,8 @@ const Calculator = () => {
         <button className='grey' onClick={inputNum} value={3}>3</button>
         <button className='orange' onClick={handleOperation} value={'+'}>+</button>
         <button className='grey' onClick={inputNum} value={0}>0</button>
-        <button className='grey' onClick={inputNum} value={','}>,</button>
-        <button className='orange'>=</button>
+        <button className='grey' onClick={inputNum} value={'.'}>,</button>
+        <button className='orange' onClick={calculate}>=</button>
       </div>
     </div>
   )
